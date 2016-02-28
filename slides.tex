@@ -18,20 +18,21 @@
 
 \mode<presentation>
 {
-  \usetheme{Warsaw}
-  %\useinnertheme{circles}
-  %\usecolortheme{beaver}
+  \usetheme{Madrid}
+  \useinnertheme{circles}
+  \usecolortheme{beaver}
 }
 \usepackage[english]{babel}
 
 \usepackage{times}
 \usepackage[T1]{fontenc}
 %
-\title{Game-Theoretic Models of Information Overload in Social Networks}
+\title[Game-Theoretic Models]{Game-Theoretic Models of Information Overload in Social Networks}
 \subtitle{A Presentation for CS886}
 \author[Presented by Krishna Vaidyanathan]{Christian Borgs,\\Jennifer
     Chayes,\\Brian Karrer,\\Brendan Meeder,\\R. Ravi,\\Ray Reagans,\\Amin
-    Sayedi\\\vspace{2em}Presented by Krishna Vaidyanathan}
+    Sayedi\\\vspace{1em}Presented by Krishna Vaidyanathan}
+
 
 \newcommand{\bi}{\begin{itemize}}
 \newcommand{\ei}{\end{itemize}}
@@ -40,9 +41,107 @@
 \newcommand{\en}{\end{enumerate}}
 
 \begin{document}
+\institute[UW]{University of Waterloo}
 \frame[plain]{\titlepage}
-\begin{frame}
+
+\frame[plain]{\tableofcontents}
+
+\section{Introduction}
+\begin{frame}{Background}
     \bi
+\item Increasing importance of social media.
+    \pause
+\item Some surveys claim the average person has five social media accounts and
+    spends 1hr 40 mins on them every day \cite{telegraph15}.
+    \pause
+\item Increasing irrelevant updates on social media newsfeeds, or information overload.
     \ei
+\end{frame}
+
+\begin{frame}{Types of social networks}
+    \bi
+\item The paper considers two types of social media, namely:
+    \pause
+\item Symmetric: requires consent from both sides to maintain tie - eg.,
+    Facebook.
+    \pause
+\item Asymmetric: requires consent from only one side to maintain tie - eg.,
+    Twitter.
+    \pause
+\item Authors mainly look at asymmetric social networks.
+    \ei
+\end{frame}
+
+\begin{frame}{Importance of information overload}
+    \bi
+\item Social networks make it convenient to get updates asynchronously.
+    \pause
+\item Makeup of newsfeed becomes very important to user.
+    \pause
+\item Mix of newsfeed is determined by the activity level of user's friends.
+    \pause
+\item \textit{How much one hears from one particular friend is not in user's 
+        control.}
+    \ei
+\end{frame}
+
+\begin{frame}{Models for social networks}
+    \bi
+\item  Assumptions of model:
+    \pause
+    \bi
+\item Rate of sending updates is key decision variable.
+    \pause
+\item Updates from friends are useful, but excessive updates have diminishing
+    value.
+    \pause
+\item Users can be partitioned as producers and consumers of information (80 -
+    20 rule).
+    \ei
+    \ei
+\end{frame}
+
+\begin{frame}{Models for social networks}
+    \bi
+\item Followership: Users in network will stay in network but unfollow agents
+    who give too frequent updates.
+    \pause
+\item Engagement: Users get frustrated by high update rate of followees and
+    leave the social network.
+    \ei
+\end{frame}
+
+\begin{frame}{Graph Model}
+    \bi
+\item Complete bipartite graph on two disjoint sets of nodes: producers (C), and
+    consumers (F).
+    \pause
+\item Edge between producer $i$ and consumer $j$ is associated with a non-negative
+    quality score $q_{ij}$.
+    \pause
+    \bi
+\item $q_{ij}$ denotes utility consumer $j$ derives from producer $i$'s updates.
+    \ei
+    \pause
+\item Producer $i$ updates at a frequency (rate) of $r_{i}$.
+    \pause
+\item Payoff for producer $i$ is $r_i$ times the number of followers he/she has.
+    \ei
+\end{frame}
+
+\section{Followership model}
+\begin{frame}
+\end{frame}
+
+\begin{frame}{References}
+\begin{thebibliography}{9}
+    \bibitem{borgs10}Borgs, C., Chayes, J., Karrer, B., Meeder, B., Ravi, R., Reagans,
+    R., \& Sayedi, A. (2010). Game-theoretic models of information overload in
+    social networks. In Algorithms and Models for the Web-Graph (pp. 146-161).
+    Springer Berlin Heidelberg.
+    \bibitem{telegraph15}
+    \url{http://www.telegraph.co.uk/finance/newsbysector/mediatechnologyandtelecoms/11610959/Is-your-daily-social-media-usage-higher-than-average.html}
+\end{thebibliography}
+
 \end{frame}
 \end{document}
