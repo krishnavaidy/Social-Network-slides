@@ -167,7 +167,7 @@
         \begin{column}{0.4\textwidth}
             \pause
             \bi
-        \item Utility for consumer $j$ is $U_{j} = r_{i}q_{ij} - \lambda (\sum_{i
+    \item Utility for consumer $j$ is $U_{j} = \sum_{i \in C_j}r_{i}q_{ij} - \lambda (\sum_{i
                 \in C_{j}}r_{i})^2$. $C_j$ being set of producers consumer $j$ follows.
             \pause
         \item Utility of consumer has an inverse U-shape, which was predicted by
@@ -195,26 +195,26 @@
     \ei
 \end{frame}
 
-\begin{frame}{User strategy}
-    \begin{block}{Proposition}
-        Consider producer $i$ and fix the tweet-rate of the other producers. If
-        $i$ increases his/her tweet-rate, his/her utility $U_i$ will not
-        decrease.
-    \end{block}
-    \pause
-    \bi
-\item If producer $i$ increases her rate to $\alpha r_i$, consumer $j$ will
-    correspondingly change $x_{ij}$ (at least $x_{ij}/\alpha$).
-    \pause
-\item If there exists a lower valued producer $l$, with $q_{il} < q_{ij}$,
-    utility of $i$ strictly increases.
-    \pause
-\item Suggests that producers will tweet at a very high rate, and consumer will
-    follow only one producer.
-    \pause
-\item Not very realistic...
-    \ei
-\end{frame}
+%\begin{frame}{User strategy}
+%    \begin{block}{Proposition}
+%        Consider producer $i$ and fix the tweet-rate of the other producers. If
+%        $i$ increases his/her tweet-rate, his/her utility $U_i$ will not
+%        decrease.
+%    \end{block}
+%    \pause
+%    \bi
+%\item If producer $i$ increases her rate to $\alpha r_i$, consumer $j$ will
+%    correspondingly change $x_{ij}$ (at least $x_{ij}/\alpha$).
+%    \pause
+%\item If there exists a lower valued producer $l$, with $q_{il} < q_{ij}$,
+%    utility of $i$ strictly increases.
+%    \pause
+%\item Suggests that producers will tweet at a very high rate, and consumer will
+%    follow only one producer.
+%    \pause
+%\item Not very realistic...
+%    \ei
+%\end{frame}
 
 \begin{frame}{Greedy Users}
     \bi
@@ -254,22 +254,21 @@
 \item If all consumers follow the same global ranking of producers.
     \pause
     \bi
-\item Note that if a producer $i$ changes his/her rate, utility of higher ranked producers
-    is unchanged.
+%\item Note that if a producer $i$ changes his/her rate, utility of higher ranked producers
+%    is unchanged.
     \pause
-\item Iteratively calculate equilibrium rate: $n$ steps for each producer.
+\item Iteratively calculate equilibrium rate by the global ranking: $n$ steps for each producer.
     \pause
 \item In step $i$, calculate optimum rate for producer $i$.
     \pause
 \item Rate for higher ranked producers is the same as calculated in previous
     steps.
-    \pause
-\item Rate for lower ranked producers is set to 0 at step $i$.
+%    \pause
+%\item Rate for lower ranked producers is set to 0 at step $i$.
     \ei
     \pause
 \item Create a dependency graph for a game, where a directed edge is drawn between
-    producers $x$ and $y$ if $q_{ix} > q_{iy}$.
-    \pause
+    producers $x$ and $y$ if $q_{ix} > q_{iy}$ for any consumer $i$.
     \bi
 \item If resultant graph is acyclic, Nash equilibrium exists.
     \pause
@@ -281,8 +280,8 @@
 
 \begin{frame}{Matchings Characterizes Pure Rate Equilibrium}
     \bi
-\item A consumer $i$ is said to be \textit{critical} to a producer $j$, if $j$
-    drops $i$ if $r_i$ is increased.
+\item A consumer $i$ is said to be \textit{critical} to a producer $j$, if $i$
+    stop following $j$ if $r_j$ is increased.
     \pause
 \item Find a matching from all subsets of producers to consumers that are
     critical for them.
