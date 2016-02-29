@@ -6,3 +6,7 @@
 *.snm
 *.fdb_latexmk
 *.toc
+*.synctex.gz
+*.bbl
+*.blg
+

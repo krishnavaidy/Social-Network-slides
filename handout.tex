@@ -1,11 +1,13 @@
 \documentclass[8pt]{article}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{capt-of}%%To get the caption
 \title{Game-Theoretic Models of Information Overload in Social Networks}
 %\author{Krishna Vaidyanathan}
-
-\lhead{Krishna V}
-\rhead{\today}
+\usepackage[margin=0.7in]{geometry}
+\lhead{Krishna Vaidyanathan}
+\rhead{February 29, 2016}
 
 \chead{CS 886: Trust and Social Networks}
 \pagestyle{fancy}
@@ -41,14 +43,10 @@ Ravi, Ray Reagans, Amin Sayedi
 \item Authors mainly look at asymmetric social networks.
 \ei
 
-\begin{figure}[ht]
-    \label{empirical_evidence}
-    \includegraphics[scale=0.2]{./figures/twitter_data.png}
-    \caption{Empirical evidence from Twitter data to prove that as rate
-        increases number of accounts unfollowing user increases}
-\end{figure}
+
 
 \section{Assumptions}
+\begin{multicols}{2}
 \bi
 \item Rate of sending updates is key decision variable (see
     Fig~\ref{empirical_evidence}).
@@ -56,7 +54,16 @@ Ravi, Ray Reagans, Amin Sayedi
     value.
 \item Users can be partitioned as producers and consumers of information.
 \ei
-
+\columnbreak
+\begingroup
+%\begin{figure}[H]
+%    
+    \includegraphics[scale=0.25]{./figures/twitter_data.png}
+    \captionof{figure}{Empirical evidence from Twitter data to prove that as rate
+       increases number of accounts unfollowing user increases}\label{empirical_evidence}
+%\end{figure}
+\endgroup
+\end{multicols}
 \section{Models for Social Networks}
 \bi
 \item Followership: Users in network will stay in network but unfollow agents
@@ -78,13 +85,12 @@ Ravi, Ray Reagans, Amin Sayedi
 \item Payoff for producer $i$ is $r_i$ times the number of followers he/she has.
     \ei
 
-
 \section{Followership}
 \bi
 \item Utility of consumer is $U_{j} = r_{i}q_{ij} - \lambda (\sum_{i}x_i
     r_{i})^2$, where $x_i$ is an indicator variable which is 1 if consumer $j$
     follows producer $i$.
-\item Solving for $x_i \in \{0, 1\}$ is hard so simplify to $x_i \in [0,1]$.
+\item Solving for $x_i \in \{0, 1\}$ is hard so simplify to $x_i \in [0,1]$ and greedy model is used.
 \item \textbf{Greedy model}: Consider consumer $j$ and let $q_1 \geq \ldots \geq q_n$ be the sorted
     order of $q_{1j},\ldots,q_{nj}$, and $k$ be the largest index such that
     $\sum_{i=1}^{k}r_i \leq q_k$. Under the greedy model, consumer $j$
@@ -107,5 +113,20 @@ Ravi, Ray Reagans, Amin Sayedi
 \item Nash equilibrium exists for games where all consumers have same degree,
     and when consumers follow one or two celebrities.
 \ei
- 
+
+\section{Conclusions}
+\subsection{Cons}
+\bi
+\item Not enough motivation for why particular models of social networks is selected.
+\item Matching characterization not elaborated upon.
+\item Fractional flow, and greedy model in Followership model not realistic, though understandable why chosen.
+\item Might Mixed State Nash equilibrium be looked at?
+\ei
+
+\subsection{Pros}
+\bi
+\item Takes into account rate of update in social networks.
+\item Characterization showed in Followership model.
+\item Empirical evidence shown for why rate of updates is a valid parameter.
+\ei
 \end{document}
